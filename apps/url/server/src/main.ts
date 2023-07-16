@@ -19,7 +19,7 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
   app.use(express.json());
   app.use(cors());
 
-  app.use(express.static(path.join(__dirname, '../../../../../../dist/apps/url/client')));
+  app.use(express.static(path.join(__dirname, '../../client')));
 
   app.post('/api/shorten', async (req, res) => {
     const original = req.body.original;
@@ -38,7 +38,7 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
   });
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../../../../../dist/apps/url/client/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/index.html'));
   });
 
   const port = process.env.PORT || 3333;

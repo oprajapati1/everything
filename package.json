@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node dist/apps/url/server/main.js",
     "build": "nx build url-client && nx build url-server",
+    "heroku-prebuild": "rm -rf dist",
     "heroku-postbuild": "npm run build"
   },
   "private": true,
