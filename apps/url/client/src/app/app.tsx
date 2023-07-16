@@ -10,7 +10,7 @@ export function App() {
 
   const requestShortUrl = useCallback(
     async (inputUrl: string) => {
-      const response = await axios.post(`http://localhost:3333/api/shorten`, {
+      const response = await axios.post('${process.env.REACT_APP_API_URL}/api/shorten', {
         original: inputUrl,
       });
 
