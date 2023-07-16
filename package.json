@@ -2,10 +2,13 @@
   "name": "everything",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "node dist/apps/url/server/main.js",
+    "build": "nx build url-client && nx build url-server",
+    "heroku-postbuild": "npm run build"
+  },
   "private": true,
   "start": "ts-node src/main.ts",
-  "heroku-postbuild": "cd apps/url/client && npm install && npm run build",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.319.0",
     "@aws-sdk/util-dynamodb": "^3.319.0",
