@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { shortenUrl, lookupUrl } from './persist';
+import * as path from 'path';
 
 type MainDependencies = {
   shortenUrl: (original: string) => Promise<string>;
