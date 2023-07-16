@@ -4,7 +4,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "nx build url-server && nx build url-client"
+    "start": "node dist/apps/url/server/main.js",
+    "build": "nx build url-client && nx build url-server",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.319.0",

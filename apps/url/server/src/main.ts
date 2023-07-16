@@ -19,7 +19,7 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
   app.use(express.json());
   app.use(cors());
 
-  app.use(express.static(path.join(__dirname, '../../client')));
+  app.use(express.static(path.join(__dirname, '../../../../dist/apps/url/client')));
 
   app.post('/api/shorten', async (req, res) => {
     const original = req.body.original;

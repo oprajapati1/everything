@@ -130,7 +130,7 @@ function main({ shortenUrl, lookupUrl }) {
         const app = (0, express_1.default)();
         app.use(express_1.default.json());
         app.use((0, cors_1.default)());
-        app.use(express_1.default.static(path.join(__dirname, 'dist/apps/url/client')));
+        app.use(express_1.default.static(path.join(__dirname, '../../../../dist/apps/url/client')));
         app.post('/api/shorten', (req, res) => tslib_1.__awaiter(this, void 0, void 0, function* () {
             const original = req.body.original;
             const short = yield shortenUrl(original);
