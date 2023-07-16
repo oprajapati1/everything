@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { shortenUrl, lookupUrl } from './persist';
+import path from 'path';
 
 type MainDependencies = {
   shortenUrl: (original: string) => Promise<string>;
@@ -18,6 +19,8 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
   app.use(express.json());
   app.use(cors());
 
+  app.use(express.static(path.join(__dirname, '../../../../../../dist/apps/url/client')));
+
   app.post('/api/shorten', async (req, res) => {
     const original = req.body.original;
     const short = await shortenUrl(original);
@@ -32,6 +35,10 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
     const id = Number(req.params.id);
     const original = await lookupUrl(id);
     res.redirect(original);
+  });
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../../../../../dist/apps/url/client/index.html'));
   });
 
   const port = process.env.PORT || 3333;
