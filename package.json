@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "postbuild": "nx build url-server && nx build url-client"
+    "build": "nx build url-server && nx build url-client"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.319.0",
