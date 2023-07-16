@@ -75,12 +75,6 @@ module.exports = require("sqlite3");
 
 module.exports = require("sqlite");
 
-/***/ }),
-/* 7 */
-/***/ ((module) => {
-
-module.exports = require("path");
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -119,7 +113,6 @@ const tslib_1 = __webpack_require__(1);
 const express_1 = tslib_1.__importDefault(__webpack_require__(2));
 const cors_1 = tslib_1.__importDefault(__webpack_require__(3));
 const persist_1 = __webpack_require__(4);
-const path = tslib_1.__importStar(__webpack_require__(7));
 // Composition Root
 const deps = {
     shortenUrl: persist_1.shortenUrl,
@@ -130,7 +123,6 @@ function main({ shortenUrl, lookupUrl }) {
         const app = (0, express_1.default)();
         app.use(express_1.default.json());
         app.use((0, cors_1.default)());
-        app.use(express_1.default.static(path.join(__dirname, '../../../../dist/apps/url/client')));
         app.post('/api/shorten', (req, res) => tslib_1.__awaiter(this, void 0, void 0, function* () {
             const original = req.body.original;
             const short = yield shortenUrl(original);
@@ -144,9 +136,6 @@ function main({ shortenUrl, lookupUrl }) {
             const original = yield lookupUrl(id);
             res.redirect(original);
         }));
-        app.get('*', (req, res) => {
-            res.sendFile(path.resolve(__dirname, 'dist/apps/url/client/index.html'));
-        });
         const port = process.env.PORT || 3333;
         const server = app.listen(port, () => {
             console.log(`Listening at http://localhost:${port}/api`);
