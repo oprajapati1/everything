@@ -37,6 +37,10 @@ async function main({ shortenUrl, lookupUrl }: MainDependencies) {
     res.redirect(original);
   });
 
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'dist/apps/url/client/index.html'));
+  });
+
   const port = process.env.PORT || 3333;
   const server = app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/api`);
