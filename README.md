@@ -8,34 +8,12 @@ Improving Error Handling: Our current application doesn't have robust error hand
 
 ## Improvements I Made
 
-Starting with visual enhancements, I introduced a subtle backdrop shadow to the main box of the application and a slight modification to the title, both in terms of the font and the name itself, to better align with the overall style and aesthetic of the application.
+I have been attempting to generate a QR code whenever a shortened url is created, however I did run into some issues with this and can't seem to solve them. I instaled all the necessary dependencies and imports, and if you look at the code I attempt to use them and generate the QR code, however I cannot seem to find the issue. I will continue working on this and eventually try and host this local app as a web app using Heroku as the project has been quite a fun challenge so far and I'd love to take it further :)
 
-Secondly, I made the effort to host the application as a web app by integrating the frontend with Heroku to make the URL shortener available to anyone.
-
-However, there were some challenges with this aspect. Due to the nature of the application's architecture and the use of SQLite, currently, the backend server needs to be run locally for the web app to function correctly. This means, for the time being, to use the application, you would need to clone the repository and run the server locally. It's a slight detour from the ideal state of a fully deployed web application, but I will continue to work on it and will definitely get it running; check-in later :)
-
-[Here is the web-app(Be sure to run the backend locally using ```yarn nx serve url-server```)](https://omsurlshortener-14dbe287a19f.herokuapp.com/)
-
-# Everything
-
-This is the C4C monorepo containing all of our active projects.
-
-Deployable units exist in `/apps`, inside each folder there is a README explaining how that unit is tested and deployed.
-
-Business logic and supporting library for those deployable units exist in `/libs`. These are composable units of software that are not coupled to a specific deployment framework or strategy, and are meant to be easily reused in future projects.
-
-The purpose of `README.md`s in this repository are to explain the usage of the application. The bare minimum you need to get it running. More detailed developer and public documentation exists on the wiki. `README.md`s will often link to relevant wiki pages.
+The improvements which I have successfully made are UI/UX improvments. I have changed the url list design choice to cards which display the shortened url, the original url, and a button to generate a QR code which does not work as stated above. I've also added the functionality for a small popup to appear when a url is successful shortened using the 'useToast' import. Finally, I've made some other minor changes, such as the backdrop around the url input box, and a buffer which appears when loading a url(the urls get generated to quickly for this to be seen). Check out the video below!
 
 
-Links to Project `README.md`
-
-- [Monarch](./apps/monarch/README.md)
-- [c4cneu.com](./apps/dotcom/README.md)
+https://github.com/oprajapati1/everything/assets/65799270/8589f5a0-c2e5-47f4-a2af-11be548ed30e
 
 
-## 🔨 Development
-1. Install Node v16.x
-2. Clone this repo
-3. `yarn install`
-
-When adding new dependencies, use `yarn add` or its dev dependency equivalent. Thanks to Nx, each package will only be installed once, and each app knows how to bundle itself correctly based on its dependencies.
+Thank you for this oppurtunity, I think it's really unique and rewarding how we get to leave this application with new skills and a whole project which you've helped us guide to build. It's been super fun to build this and all the challenges that came with, and I really appreciate it!
