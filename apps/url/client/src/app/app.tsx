@@ -1,24 +1,32 @@
 import { useCallback, useState } from 'react';
 import axios from 'axios';
-import { Container, Heading, Box } from '@chakra-ui/react';
+import { Container, Heading, Box, useToast } from '@chakra-ui/react';
 import { Shortened } from './types';
 import ShortenUrlForm from './ShortenUrlForm';
 import UrlList from './UrlList';
 
 export function App() {
   const [urls, setUrls] = useState<Array<Shortened>>([]);
+  const toast = useToast();
 
   const requestShortUrl = useCallback(
     async (inputUrl: string) => {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/shorten`, {
+      const response = await axios.post(`http://localhost:3333/api/shorten`, {
         original: inputUrl,
       });
 
       const newUrl = response.data as Shortened;
-
       setUrls([newUrl, ...urls]);
+
+      toast({
+        title: 'URL shortened successfully!',
+        description: `Shortened URL: ${newUrl.short}`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
     },
-    [urls]
+    [urls, toast]
   );
 
   return (

@@ -15,14 +15,19 @@ async function getDB() {
   return _db;
 }
 
-export async function shortenUrl(url: string): Promise<string> {
+export async function shortenUrl(url: string): Promise<{short: string, id: number}> {
   const db = await getDB();
 
   const result = await db.run('INSERT INTO url (original) VALUES (?)', url);
+  console.error('Database insert result: ', result);
+
   const id = result.lastID;
   const short = `http://localhost:3333/s/${id}`;
 
-  return short;
+  console.error('Returning from shortenUrl: ', {short, id});
+
+
+  return { short, id };
 }
 
 export async function lookupUrl(shortenedId: number) {
