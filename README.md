@@ -14,6 +14,3 @@ The improvements which I have successfully made are UI/UX improvments. I have ch
 
 
 https://github.com/oprajapati1/everything/assets/65799270/8589f5a0-c2e5-47f4-a2af-11be548ed30e
-
-
-Thank you for this oppurtunity, I think it's really unique and rewarding how we get to leave this application with new skills and a whole project which you've helped us guide to build. It's been super fun to build this and all the challenges that came with, and I really appreciate it!
