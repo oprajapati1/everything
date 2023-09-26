@@ -1,4 +1,4 @@
-# Om Prajapati Technical Challenge Responses
+# Om Prajapati URL Shortener
 ## Here are three areas I would focus on for improvement:
 Further Improve Modularity: We've started the process of making the code more modular by separating the SQL code and actions into their own file (persist.ts). However, this can be taken further. For example, the database connection handling (getDB) can also be separated into a dedicated module. This can make the code easier to manage and expand in the future.
 
